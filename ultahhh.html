@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAPPY BIRTHDAY ASHYAOY!!!!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background: linear-gradient(180deg, #ffe6f2 0%, #ffd6eb 100%);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ff69b4;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 0.3em;
+      animation: pop 1.5s ease-in-out infinite alternate;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #d63384;
+      margin-bottom: 1.5em;
+    }
+
+    img {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      width: 130px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+      opacity: 0.9;
+      transition: transform 0.3s ease-in-out;
+    } 
+
+    button {
+      background-color: #ff99cc;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      border-radius: 30px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+      transition: all 0.2s ease-in-out;
+      margin: 6px;
+    }
+
+    button:hover {
+      background-color: #ff66b2;
+      transform: scale(1.05);
+    }
+
+    .heart {
+      position: absolute;
+      color: #ffb6c1;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px) scale(0.8);
+        opacity: 0;
+      }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9em;
+      color: #ff80bf;
+    }
+  </style>
+</head>
+<body>
+  <h1>Selamat Ulang Tahun, Ashyaoy!</h1>
+  <p>Semoga hari mu dikuatkan menghadapi coding,<br>dan selalu terseyum walau terpaksa</p>
+  <img src="6ffa6619-da9b-4585-896e-25f4e99df5cb.jpeg" alt="Meme lucu" />
+  <button id="musicBtn">🎵 Pyutar musiknyaaaaaa</button>
+
+  <footer>ini waterfiremark eaKkKk</footer>
+
+  <audio id="bgm" loop>
+    <!-- GANTI LINK DI BAWAH INI DENGAN LINK MUSIKMU (MP3, WAV, DLL) -->
+    <source src="ssstik.io_1759590105140.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // === ANIMASI HATI TERBANG ===
+    const body = document.body;
+    const hearts = ["🐱", "🎂", "🎉", "✨", "🎈"];
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 30 + 20 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+      body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(createHeart, 400);
+
+    // === MUSIK ===
+    const music = document.getElementById("bgm");
+    const btn = document.getElementById("musicBtn");
+
+    btn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "⏸️ Berhenti jangan lanjyuttt";
+      } else {
+        music.pause();
+        btn.textContent = "🎵 Pyutar musiknyaaaaaa";
+      }
+    });
+  </script>
+</body>
+</html>
