@@ -91,6 +91,32 @@
       font-size: 0.9em;
       color: #ff80bf;
     }
+
+    /* === TAMBAHAN FOTO === */
+    .foto-orang {
+      position: absolute;
+      bottom: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      height: auto;
+      border-radius: 50%;
+      border: 4px solid #ff99cc;
+      box-shadow: 0 0 25px rgba(255, 182, 193, 0.7);
+      animation: goyang 2s ease-in-out infinite alternate,
+                 muncul 2s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes goyang {
+      0% { transform: translateX(-50%) rotate(-5deg); }
+      100% { transform: translateX(-50%) rotate(5deg); }
+    }
+
+    @keyframes muncul {
+      0% { opacity: 0; transform: translateX(-50%) scale(0.7); }
+      100% { opacity: 1; transform: translateX(-50%) scale(1); }
+    }
   </style>
 </head>
 <body>
@@ -102,9 +128,11 @@
   <footer>ini waterfiremark eaKkKk</footer>
 
   <audio id="bgm" loop>
-    <!-- GANTI LINK DI BAWAH INI DENGAN LINK MUSIKMU (MP3, WAV, DLL) -->
     <source src="ssstik.io_1759590105140.mp3" type="audio/mpeg">
   </audio>
+
+  <!-- === TAMBAHAN FOTO ORANG === -->
+  <img class="foto-orang" src="mm.jpeg" alt="Foto orang lucu" id="fotoOrang" />
 
   <script>
     // === ANIMASI HATI TERBANG ===
@@ -137,6 +165,12 @@
         btn.textContent = "🎵 Pyutar musiknyaaaaaa";
       }
     });
+
+    /* === TAMBAHAN: MUNCULKAN FOTO DENGAN DELAY BIAR KAYA SURPRISE === */
+    const foto = document.getElementById("fotoOrang");
+    setTimeout(() => {
+      foto.style.opacity = "1";
+    }, 1500);
   </script>
 </body>
 </html>
