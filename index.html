@@ -92,31 +92,32 @@
       color: #ff80bf;
     }
 
-    /* === TAMBAHAN FOTO === */
+    /* === TAMBAHAN FOTO NGINTIP LUCU === */
     .foto-orang {
-      position: absolute;
-      bottom: 120px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 180px;
+      position: fixed;
+      bottom: -10px; /* ngintip dari bawah */
+      left: -80px;   /* ngintip dari kiri */
+      width: 160px;
       height: auto;
       border-radius: 50%;
       border: 4px solid #ff99cc;
       box-shadow: 0 0 25px rgba(255, 182, 193, 0.7);
-      animation: goyang 2s ease-in-out infinite alternate,
-                 muncul 2s ease-in-out forwards;
+      transform: rotate(-10deg);
       opacity: 0;
+      animation: munculNgintip 2s ease-out forwards, goyangNgintip 3s ease-in-out infinite alternate;
+      z-index: 1;
     }
 
-    @keyframes goyang {
-      0% { transform: translateX(-50%) rotate(-5deg); }
-      100% { transform: translateX(-50%) rotate(5deg); }
+    @keyframes munculNgintip {
+      0% { left: -180px; opacity: 0; transform: rotate(-15deg); }
+      100% { left: 20px; opacity: 1; transform: rotate(-10deg); }
     }
 
-    @keyframes muncul {
-      0% { opacity: 0; transform: translateX(-50%) scale(0.7); }
-      100% { opacity: 1; transform: translateX(-50%) scale(1); }
+    @keyframes goyangNgintip {
+      0% { transform: translateY(0) rotate(-10deg); }
+      100% { transform: translateY(-8px) rotate(-6deg); }
     }
+
   </style>
 </head>
 <body>
@@ -128,10 +129,11 @@
   <footer>ini waterfiremark eaKkKk</footer>
 
   <audio id="bgm" loop>
+    <!-- GANTI LINK DI BAWAH INI DENGAN LINK MUSIKMU (MP3, WAV, DLL) -->
     <source src="ssstik.io_1759590105140.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- === TAMBAHAN FOTO ORANG === -->
+  <!-- === FOTO ORANG NGINTIP DARI POJOK === -->
   <img class="foto-orang" src="mm.jpeg" alt="Foto orang lucu" id="fotoOrang" />
 
   <script>
@@ -166,7 +168,7 @@
       }
     });
 
-    /* === TAMBAHAN: MUNCULKAN FOTO DENGAN DELAY BIAR KAYA SURPRISE === */
+    /* === FOTO NGINTIP DELAY BIAR KAYA SURPRISE === */
     const foto = document.getElementById("fotoOrang");
     setTimeout(() => {
       foto.style.opacity = "1";
